@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Update Exercise</title>
+<style>
+body {
+	background-image: url("weight.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+form {
+	width: 400px;
+	border-style: solid;
+	display: flex;
+	flex-direction: column;
+	font-size: 30px;
+	margin-left: 40%;
+	margin-top: 20%;
+}
+</style>
+</head>
+
+<body>
+
+<form action="#" th:action="@{/update/{id}(id=${exercise.exerciseid})}" th:object="${exercise}" method="post">
+    <label for="date">Date</label>
+    <input type="text" th:field="*{date}" id="date" placeholder="date">
+    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+    
+    <label for="exertype">Exercise Type</label>
+    <input type="text" th:field="*{exercisetype}" id="exertype" placeholder="exercise">
+    <span th:if="${#fields.hasErrors('exercisetype')}" th:errors="*{exercisetype}"></span>
+    
+    <label for="sets">Sets</label>
+    <input type="text" th:field="*{sets}" id="sets" placeholder="sets">
+    <span th:if="${#fields.hasErrors('sets')}" th:errors="*{sets}"></span>
+    
+    <label for="reps">Reps</label>
+    <input type="text" th:field="*{reps}" id="reps" placeholder="reps">
+    <span th:if="${#fields.hasErrors('reps')}" th:errors="*{reps}"></span>
+        
+    <input type="submit" value="Update">   
+<a href="index.html">Main Menu</a>
+</form>
+
+
+</body>
+</html>

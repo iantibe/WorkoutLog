@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add new Exercise</title>
+<style>
+
+body {
+	background-image: url("weight.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+form {
+	width: 400px;
+	border-style: solid;
+	display: flex;
+	flex-direction: column;
+	font-size: 30px;
+	margin-left: 40%;
+	margin-top: 20%;
+}
+</style>
+</head>
+<body>
+
+<form name='form'th:object="${exercise}"th:action="@{/inputexercise}"method='POST'>
+		Exercise Type <input name="exercisetype"size="30"> <br />
+		Date: <input name="date"><br />
+		Sets: <input name="sets" size="10"><br />
+		Reps: <input name="reps" size="10"><br />
+			  <input name="submit"type="submit"value="submit"/>
+	<a href="index.html">Main Menu</a>
+	</form>
+	
+</body>
+</html>

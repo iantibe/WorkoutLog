@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Current Exercises</title>
+<style>
+
+body {
+	background-image: url("weight.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+form {
+	width: 1000px;
+	border-style: solid;
+	display: flex;
+	flex-direction: column;
+	font-size: 30px;
+	margin-top: 20%;
+	margin-left: 30%;
+	
+}
+
+.labels {
+	display: flex;
+	justify-content: space-between;
+}
+
+</style>
+</head>
+<body>
+
+<form>
+<div class="labels">
+Exericse:
+Sets:
+Reps:
+Date:
+</div>
+	<table>
+		<tr th:each="exercisefield : ${exercise}">
+		<td th:text="${exercisefield.exercisetype}"/>
+		<td th:text="${exercisefield.sets}"/>
+		<td th:text="${exercisefield.reps}"/>
+		<td th:text="${exercisefield.date}"/>
+		<td> <a th:href="@{/edit/{id}(id=${exercisefield.exerciseid})}">Edit</a></td>
+		<td><a th:href="@{/delete/{id}(id=${exercisefield.exerciseid})}">Delete</a></td>
+		</tr>
+	</table>
+<a href="index.html">Main Menu</a>
+</form>
+
+</body>
+</html>
