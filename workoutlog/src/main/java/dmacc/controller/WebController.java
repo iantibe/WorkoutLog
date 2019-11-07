@@ -54,6 +54,7 @@ public class WebController {
 		if(result.hasErrors()) {
 			e.setExerciseid(id);
 			return "updateexercise";}
+		e.setExerciseid(id);
 		repo.save(e);
 		model.addAttribute("exercise", repo.findAll());
 		return "viewexercises";
