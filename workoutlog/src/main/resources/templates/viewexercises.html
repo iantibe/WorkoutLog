@@ -19,7 +19,6 @@ form {
 	font-size: 30px;
 	margin-top: 20%;
 	margin-left: 30%;
-	
 }
 
 .labels {
@@ -38,13 +37,14 @@ Sets:
 Reps:
 Date:
 </div>
+
 	<table>
 		<tr th:each="exercisefield : ${exercise}">
 		<td th:text="${exercisefield.exercisetype}"/>
 		<td th:text="${exercisefield.sets}"/>
 		<td th:text="${exercisefield.reps}"/>
 		<td th:text="${exercisefield.date}"/>
-		<td> <a th:href="@{/edit/{id}(id=${exercisefield.exerciseid})}">Edit</a></td>
+		<td><a th:href="@{/edit/{id}(id=${exercisefield.exerciseid})}">Edit</a></td>
 		<td><a th:href="@{/delete/{id}(id=${exercisefield.exerciseid})}">Delete</a></td>
 		</tr>
 	</table>
